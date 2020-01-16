@@ -8,3 +8,4 @@ variables.env.now
 
 # Local Netlify folder
 .netlify
+functions-build/
