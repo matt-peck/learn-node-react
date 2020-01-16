@@ -1,9 +1,8 @@
-const mongoose = require("mongoose");
 const multer = require("multer");
 const jimp = require("jimp");
 const uuid = require("uuid");
-import Store from "../models/Store";
-import User from "../models/User";
+const Store = require("../models/Store");
+const User = require("../models/User");
 
 const multerOptions = {
   storage: multer.memoryStorage(),
