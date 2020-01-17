@@ -74,5 +74,5 @@ exports.productionErrors = (err, req, res, next) => {
   //   message: err.message,
   //   error: {}
   // });
-  res.json(err);
+  res.json({ message: err.message, err });
 };
