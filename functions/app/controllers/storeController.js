@@ -17,11 +17,13 @@ const multerOptions = {
 };
 
 exports.homePage = (req, res) => {
-  res.render("index");
+  // res.render("index");
+  res.send("homePage");
 };
 
 exports.addStore = (req, res) => {
-  res.render("editStore", { title: "Add Store" });
+  // res.render("editStore", { title: "Add Store" });
+  res.send("addStore");
 };
 
 exports.upload = multer(multerOptions).single("photo");
@@ -92,7 +94,8 @@ exports.editStore = async (req, res) => {
   // 2. confirm they are the owner of the store
   confirmOwner(store, req.user);
   // 3. Render out the edit form so the user can update their store
-  res.render("editStore", { title: `Edit ${store.name}`, store });
+  // res.render("editStore", { title: `Edit ${store.name}`, store });
+  res.send("editStore");
 };
 
 exports.updateStore = async (req, res) => {
@@ -108,7 +111,7 @@ exports.updateStore = async (req, res) => {
     `Successfully updated <strong>${store.name}</strong>. <a href="/stores/${store.slug}">View Store →</a>`
   );
   res.redirect(`/stores/${store._id}/edit`);
-  // Redriect them the store and tell them it worked
+  // Redirect them the store and tell them it worked
 };
 
 exports.getStoreBySlug = async (req, res, next) => {
@@ -116,7 +119,8 @@ exports.getStoreBySlug = async (req, res, next) => {
     "author reviews"
   );
   if (!store) return next();
-  res.render("store", { store, title: store.name });
+  // res.render("store", { store, title: store.name });
+  res.send("getStoreBySlug");
 };
 
 exports.getStoresByTag = async (req, res) => {
@@ -127,7 +131,8 @@ exports.getStoresByTag = async (req, res) => {
   const storesPromise = Store.find({ tags: tagQuery });
   const [tags, stores] = await Promise.all([tagsPromise, storesPromise]);
 
-  res.render("tag", { tags, title: "Tags", tag, stores });
+  // res.render("tag", { tags, title: "Tags", tag, stores });
+  res.send("getStoresByTag");
 };
 
 exports.searchStores = async (req, res) => {
@@ -173,7 +178,8 @@ exports.mapStores = async (req, res) => {
 };
 
 exports.mapPage = (req, res) => {
-  res.render("map", { title: "Map" });
+  // res.render("map", { title: "Map" });
+  res.send("mapPage");
 };
 
 exports.heartStore = async (req, res) => {
@@ -192,10 +198,12 @@ exports.getHearts = async (req, res) => {
   const stores = await Store.find({
     _id: { $in: req.user.hearts }
   });
-  res.render("stores", { title: "Hearted Stores", stores });
+  // res.render("stores", { title: "Hearted Stores", stores });
+  res.send("getHearts");
 };
 
 exports.getTopStores = async (req, res) => {
   const stores = await Store.getTopStores();
-  res.render("topStores", { stores, title: "⭐ Top Stores!" });
+  // res.render("topStores", { stores, title: "⭐ Top Stores!" });
+  res.send("getTopStores");
 };

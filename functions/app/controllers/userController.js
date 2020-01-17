@@ -2,11 +2,13 @@ const User = require("../models/User");
 const promisify = require("es6-promisify");
 
 exports.loginForm = (req, res) => {
-  res.render("login", { title: "Login" });
+  // res.render("login", { title: "Login" });
+  res.send("loginForm");
 };
 
 exports.registerForm = (req, res) => {
-  res.render("register", { title: "Register" });
+  // res.render("register", { title: "Register" });
+  res.send("registerForm");
 };
 
 exports.validateRegister = (req, res, next) => {
@@ -32,11 +34,12 @@ exports.validateRegister = (req, res, next) => {
       "error",
       errors.map(err => err.msg)
     );
-    res.render("register", {
-      title: "Register",
-      body: req.body,
-      flashes: req.flash()
-    });
+    // res.render("register", {
+    //   title: "Register",
+    //   body: req.body,
+    //   flashes: req.flash()
+    // });
+    res.send("validateRegister");
     return; // stop the fn from running
   }
   next(); // there were no errors!
@@ -50,7 +53,8 @@ exports.register = async (req, res, next) => {
 };
 
 exports.account = (req, res) => {
-  res.render("account", { title: "Edit Your Account" });
+  // res.render("account", { title: "Edit Your Account" });
+  res.send("account");
 };
 
 exports.updateAccount = async (req, res) => {
