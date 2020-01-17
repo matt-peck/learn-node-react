@@ -69,6 +69,7 @@ exports.getStores = async (req, res) => {
 
   const [stores, count] = await Promise.all([storesPromise, countPromise]);
   const pages = Math.ceil(count / limit);
+
   if (!stores.length && skip) {
     req.flash(
       "info",
@@ -79,7 +80,7 @@ exports.getStores = async (req, res) => {
   }
 
   // res.render("stores", { title: "Stores", stores, page, pages, count });
-  res.send("get stores! woohoo!");
+  res.json({ page: "store", stores, page, pages, count });
 };
 
 const confirmOwner = (store, user) => {
