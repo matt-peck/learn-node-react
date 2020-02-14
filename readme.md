@@ -1,3 +1,3 @@
-[![](http://wes.io/kH9O/wowwwwwwwww.jpg)](https://LearnNode.com)
+# Learn Node Course by Wes Bos:
 
-# Wes Bos' Learn Node Course ▶️ Netlify, Netlify Functions, React
+## Netlify, Netlify Functions, React
