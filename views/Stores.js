@@ -3,9 +3,9 @@ import Layout from './Layout';
 import StoreCard from './components/StoreCard';
 import Pagination from './components/Pagination';
 
-function Stores({ h, title, stores, page, pages, count }) {
+function Stores({ h, currentPath, user, title, stores, page, pages, count }) {
   return (
-    <Layout h={h} title={title}>
+    <Layout h={h} currentPath={currentPath} user={user} title={title}>
       <div className="inner">
         <h2>{title}</h2>
         <div className="stores">
