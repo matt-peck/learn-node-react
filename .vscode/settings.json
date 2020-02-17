@@ -34,7 +34,7 @@
     "**/.next": true
   },
   "workbench.colorTheme": "Cobalt2",
-  "workbench.editor.tabCloseButton": "on",
+  "workbench.editor.tabCloseButton": "right",
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
@@ -47,48 +47,27 @@
   "editor.formatOnSave": false,
   // turn it off for JS
   "[javascript]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   // tell the ESLint plugin to run on save
-  "eslint.autoFixOnSave": true,
+  // "eslint.autoFixOnSave": true,
   // Optional: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
   "prettier.disableLanguages": ["js"],
-  "eslint.alwaysShowStatus": true,
-  "cSpell.userWords": [
-    "SIGNUP",
-    "Signin",
-    "Signout",
-    "TLDR",
-    "Templating",
-    "backend",
-    "camo",
-    "destructure",
-    "gmail",
-    "injectable",
-    "lightgrey",
-    "minmax",
-    "prefetch",
-    "promisify",
-    "refetch",
-    "wesbos"
-  ],
-  "editor.autoIndent": true,
+  // "eslint.alwaysShowStatus": true,
+  "editor.autoIndent": "keep",
   "window.closeWhenEmpty": true,
   "editor.detectIndentation": false,
   "files.insertFinalNewline": true,
   "editor.showFoldingControls": "always",
   "editor.find.seedSearchStringFromSelection": true,
-  "editor.matchBrackets": true,
+  "editor.matchBrackets": "always",
   "workbench.editor.enablePreview": true,
   "editor.scrollBeyondLastLine": true,
   "editor.useTabStops": true,
   "editor.formatOnPaste": true,
-  "[jade]": {
-    "togglequotes.chars": ["\"", "'", "`"]
-  },
   "window.zoomLevel": 0,
   "editor.parameterHints.enabled": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    // "source.fixAll.eslint": true
   }
 }

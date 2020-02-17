@@ -1,13 +1,11 @@
-const React = require('react');
+import React from "react";
 
-function Error(props) {
-  return (
-    <div className="inner">
-      <h2>{props.status}</h2>
-      <p>{props.message}</p>
-      <pre className="error">{props.stackHighlighted}</pre>
-    </div>
-  );
-}
+const Error = ({ status, message, stackHighlighted }) => (
+  <div className="inner">
+    <h2>{status}</h2>
+    <p>{message}</p>
+    <pre className="error">{stackHighlighted}</pre>
+  </div>
+);
 
-module.exports = Error;
+export default Error;
