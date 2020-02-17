@@ -87,5 +87,8 @@
     "togglequotes.chars": ["\"", "'", "`"]
   },
   "window.zoomLevel": 0,
-  "editor.parameterHints.enabled": false
+  "editor.parameterHints.enabled": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
