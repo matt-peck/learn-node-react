@@ -18,7 +18,7 @@ const multerOptions = {
 };
 
 exports.addStore = (req, res) => {
-  return res.render("editStore", { title: "Add Store" });
+  return res.render("EditStore", { title: "Add Store" });
 };
 
 exports.upload = multer(multerOptions).single("photo");
@@ -73,7 +73,7 @@ exports.getStores = async (req, res) => {
     return;
   }
 
-  return res.render("stores", { title: "Stores", stores, page, pages, count });
+  return res.render("Stores", { title: "Stores", stores, page, pages, count });
 };
 
 const confirmOwner = (store, user) => {
@@ -88,7 +88,7 @@ exports.editStore = async (req, res) => {
   // 2. confirm they are the owner of the store
   confirmOwner(store, req.user);
   // 3. Render out the edit form so the user can update their store
-  res.render("editStore", { title: `Edit ${store.name}`, store });
+  res.render("EditStore", { title: `Edit ${store.name}`, store });
 };
 
 exports.updateStore = async (req, res) => {
@@ -112,7 +112,7 @@ exports.getStoreBySlug = async (req, res, next) => {
     "author reviews"
   );
   if (!store) return next();
-  res.render("store", { store, title: store.name });
+  res.render("Store", { store, title: store.name });
 };
 
 exports.getStoresByTag = async (req, res) => {
@@ -123,7 +123,7 @@ exports.getStoresByTag = async (req, res) => {
   const storesPromise = Store.find({ tags: tagQuery });
   const [tags, stores] = await Promise.all([tagsPromise, storesPromise]);
 
-  res.render("tag", { tags, title: "Tags", tag, stores });
+  res.render("Tag", { tags, title: "Tags", tag, stores });
 };
 
 exports.searchStores = async (req, res) => {
@@ -169,7 +169,7 @@ exports.mapStores = async (req, res) => {
 };
 
 exports.mapPage = (req, res) => {
-  res.render("map", { title: "Map" });
+  res.render("Map", { title: "Map" });
 };
 
 exports.heartStore = async (req, res) => {
@@ -188,10 +188,10 @@ exports.getHearts = async (req, res) => {
   const stores = await Store.find({
     _id: { $in: req.user.hearts },
   });
-  res.render("stores", { title: "Hearted Stores", stores });
+  res.render("Stores", { title: "Hearted Stores", stores });
 };
 
 exports.getTopStores = async (req, res) => {
   const stores = await Store.getTopStores();
-  res.render("topStores", { stores, title: "⭐ Top Stores!" });
+  res.render("TopStores", { stores, title: "⭐ Top Stores!" });
 };
