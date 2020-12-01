@@ -31,7 +31,7 @@ const Tag = ({ flashes, currentPath, user, title, tag, tags, stores }) => {
         </ul>
         <div className="stores">
           {stores.map((store) => {
-            return <StoreCard store={store} />;
+            return <StoreCard key={store._id} store={store} />;
           })}
         </div>
       </div>

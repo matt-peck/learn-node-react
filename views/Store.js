@@ -47,11 +47,7 @@ const Store = ({ flashes, currentPath, user, title, store }) => {
         {store.reviews && (
           <div className="reviews">
             {store.reviews.map((review) => {
-              return (
-                <div className="review">
-                  <Review review={review} />
-                </div>
-              );
+              return <Review key={review._id} review={review} />;
             })}
           </div>
         )}

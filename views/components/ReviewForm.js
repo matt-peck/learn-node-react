@@ -11,7 +11,7 @@ const ReviewForm = ({ store }) => {
         <div className="reviewer__stars">
           {[5, 4, 3, 2, 1].map((num) => {
             return (
-              <Fragment>
+              <Fragment key={num}>
                 <input
                   type="radio"
                   name="rating"

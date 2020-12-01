@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 
 const Review = ({ review }) => {
   return (
-    <Fragment>
+    <div className="review">
       <div className="review__header">
         <div className="review__author">
           <img src={review.author.gravatar} className="avatar" />
@@ -23,7 +23,7 @@ const Review = ({ review }) => {
       <div className="review__body">
         <p>{review.text}</p>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

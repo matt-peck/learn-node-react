@@ -13,10 +13,10 @@ const Account = ({ flashes, currentPath, user, title }) => {
         <h2>Edit Your Account</h2>
         <form action="/account" method="POST" className="form">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" value={user.name} />
+          <input type="text" name="name" defaultValue={user.name} />
 
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" value={user.email} />
+          <input type="email" name="email" defaultValue={user.email} />
 
           <input type="submit" value="Update My Account" className="button" />
         </form>

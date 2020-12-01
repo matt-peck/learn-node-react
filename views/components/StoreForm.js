@@ -18,9 +18,9 @@ const StoreForm = ({ store = {} }) => {
       encType="multipart/form-data"
     >
       <label htmlFor="name">Name</label>
-      <input type="text" name="name" value={store.name} />
+      <input type="text" name="name" defaultValue={store.name} />
       <label htmlFor="description">Description</label>
-      <textarea name="description" value={store.description} />
+      <textarea name="description" defaultValue={store.description} />
       <label htmlFor="photo">Photo</label>
       <input
         type="file"
@@ -36,14 +36,14 @@ const StoreForm = ({ store = {} }) => {
         type="text"
         id="address"
         name="location[address]"
-        value={store.location?.address}
+        defaultValue={store.location?.address}
       />
       <label htmlFor="lng">Address Lng</label>
       <input
         type="text"
         id="lng"
         name="location[coordinates][0]"
-        value={store.location?.coordinates[0]}
+        defaultValue={store.location?.coordinates[0]}
         required
       />
       <label htmlFor="lat">Address Lat</label>
@@ -51,19 +51,18 @@ const StoreForm = ({ store = {} }) => {
         type="text"
         id="lat"
         name="location[coordinates][1]"
-        value={store.location?.coordinates[1]}
+        defaultValue={store.location?.coordinates[1]}
         required
       />
       <ul className="tags">
         {choices.map((choice) => {
           return (
-            <div className="tag tag__choice">
+            <div key={choice} className="tag tag__choice">
               <input
                 type="checkbox"
                 name="tags"
                 id={choice}
-                value={choice}
-                checked={tags.includes(choice)}
+                defaultChecked={tags.includes(choice)}
               />
               <label htmlFor={choice}>{choice}</label>
             </div>
